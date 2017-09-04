@@ -1,0 +1,146 @@
+Script started on Wed 09 Dec 2015 03:16:58 PM EST
+sppang@matrix:~/oop345/oopAssignment> whoami
+sppang
+sppang@matrix:~/oop345/oopAssignment> g++ -std="c++0x" -o Mile3 Milestone_3.cpp Task.cpp Utilities.cpp Item.cpp CustomerOrder.cpp ItemOrder.cpp TaskManager.cpp OrderManager.cpp ItemManager.cpp
+sppang@matrix:~/oop345/oopAssignment> Mile3 TaskList_Clean.dat CustomerOrders_Clean.dat ItemList_Clean.dat '|'
+Command Line Arguments
+----------------------
+Task File Specified           = TaskList_Clean.dat
+Customer Order File Specified = CustomerOrders_Clean.dat
+Item File Specified           = ItemList_Clean.dat
+File Record Field Delimiter   = |
+
+Building the Network of Tasks
+-----------------------------
+Task Name    : [Power Supply]    [4]
+ Continue to : [Motherboard]  *** to be validated ***
+Task Name    : [Motherboard]     [3]
+ Continue to : [CPU]          *** to be validated ***
+ Redirect to : [Remove CPU]   *** to be validated ***
+Task Name    : [Remove CPU]      [1]
+ Continue to : [CPU]          *** to be validated ***
+Task Name    : [CPU]             [5]
+ Continue to : [Memory]       *** to be validated ***
+ Redirect to : [Remove CPU]   *** to be validated ***
+Task Name    : [Remove CPU]      [1]
+ Continue to : [CPU]          *** to be validated ***
+Task Name    : [Memory]          [4]
+ Continue to : [SSD]          *** to be validated ***
+ Redirect to : [Remove Memory]*** to be validated ***
+Task Name    : [Remove Memory]   [1]
+ Continue to : [Memory]       *** to be validated ***
+Task Name    : [SSD]             [4]
+ Continue to : [GPU]          *** to be validated ***
+ Redirect to : [Remove SSD]   *** to be validated ***
+Task Name    : [Remove SSD]      [1]
+ Continue to : [SSD]          *** to be validated ***
+Task Name    : [GPU]             [3]
+ Continue to : [Test]         *** to be validated ***
+Task Name    : [Test]            [4]
+ Continue to : [Approve]      *** to be validated ***
+ Redirect to : [Repair]       *** to be validated ***
+Task Name    : [Repair]          [1]
+Task Name    : [Approve]         [1]
+
+Validating the Set of Tasks
+---------------------------
+
+List of Accepted Tasks
+----------------------
+Task Name    : [Power Supply]    [4]
+ Continue to : [Motherboard]  
+Task Name    : [Motherboard]     [3]
+ Continue to : [CPU]          
+ Redirect to : [Remove CPU]   
+Task Name    : [Remove CPU]      [1]
+ Continue to : [CPU]          
+Task Name    : [CPU]             [5]
+ Continue to : [Memory]       
+ Redirect to : [Remove CPU]   
+Task Name    : [Remove CPU]      [1]
+ Continue to : [CPU]          
+Task Name    : [Memory]          [4]
+ Continue to : [SSD]          
+ Redirect to : [Remove Memory]
+Task Name    : [Remove Memory]   [1]
+ Continue to : [Memory]       
+Task Name    : [SSD]             [4]
+ Continue to : [GPU]          
+ Redirect to : [Remove SSD]   
+Task Name    : [Remove SSD]      [1]
+ Continue to : [SSD]          
+Task Name    : [GPU]             [3]
+ Continue to : [Test]         
+Task Name    : [Test]            [4]
+ Continue to : [Approve]      
+ Redirect to : [Repair]       
+Task Name    : [Repair]          [1]
+Task Name    : [Approve]         [1]
+
+*** Load and Accept the Customer Orders ***
+
+List of Accepted Customer Orders
+--------------------------------
+Fardad Soleimanloo  : Dell Precision 3600
+ - [00000] CPU
+ - [00000] Memory
+ - [00000] Memory
+Joseph Hughes       : HP Z230            
+ - [00000] CPU
+ - [00000] Memory
+Chris Szalwinski    : HP Z350            
+ - [00000] CPU
+ - [00000] Memory
+ - [00000] SSD
+ - [00000] GPU
+Elliott Coleshill   : HP Apollo 1000     
+ - [00000] CPU
+ - [00000] MEMORY
+ - [00000] Power Supply
+ - [00000] GPU
+
+*** Load and accept the Items in Stock ***
+
+List of In-Stock Items
+----------------------
+CPU          [00300] From CPU          To Remove CPU  
+                   : Central Processing Unit
+Memory       [00400] From Memory       To Remove Memory
+                   : Samsung Memory Stick
+GPU          [00500] From GPU          To Remove GPU  
+                   : Nvidia Geforce 750M
+Power Supply [00100] From Power Supply To Remove Power Supply
+                   : no detailed description
+SSD is unavailable
+MEMORY is unavailable
+Remove GPU is unavailable
+Remove Power Supply is unavailable
+
+*** Fill the Customer Orders ***
+
+List of Processed Customer Orders
+---------------------------------
+Fardad Soleimanloo  : Dell Precision 3600
+ + [00300] CPU
+ + [00400] Memory
+ + [00401] Memory
+Joseph Hughes       : HP Z230            
+ + [00301] CPU
+ + [00402] Memory
+Chris Szalwinski    : HP Z350            
+ + [00302] CPU
+ + [00403] Memory
+ - [00000] SSD
+ + [00500] GPU
+Elliott Coleshill   : HP Apollo 1000     
+ + [00303] CPU
+ - [00000] MEMORY
+ + [00100] Power Supply
+ + [00501] GPU
+
+Done!
+Press Enter Key to Exit ... 
+sppang@matrix:~/oop345/oopAssignment> exit
+exit
+
+Script done on Wed 09 Dec 2015 03:17:20 PM EST
